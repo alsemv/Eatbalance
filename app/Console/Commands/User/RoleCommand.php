@@ -7,8 +7,8 @@ use Illuminate\Console\Command;
 
 class RoleCommand extends Command
 {
-    protected $signature = 'user:role {email} {role}';
-    protected $description = 'Set role for user by email';
+    protected $signature = 'users:role {email} {role}';
+    protected $description = 'Set role for users by email';
 
     public function handle(): bool
     {
