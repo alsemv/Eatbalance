@@ -66,4 +66,9 @@ class User extends Authenticatable
 
         $this->update(['role' => $role]);
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === self::ROLE_ADMIN;
+    }
 }
