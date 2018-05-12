@@ -30,7 +30,7 @@ class MealsTableSeeder extends Seeder
             ['name' => 'Гречневая лапша соба с кунжутом и зеленью', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/5749d75424dd8dac65b69d90478c304d.jpg'],
             ['name' => 'Сэндвич с овощным омлетом и запеченным филе индейки', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/68c29f23024855d7f8531e053f509499.jpg'],
             ['name' => 'Барли с грибами и зеленью', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/157489f4a1bee26e2513a647a01a4a13.jpg'],
-            ['name' => 'Обезжиренный рассыпчатый творог с запеченной грушей', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/2e48de423881fc2c09423fe100a61a3a.jpg'],
+            ['name' => 'Обезжиренный рассыпчатый творог с запеченной грушей', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/1f2c80da22f0e4a8c18140c765c6c740.jpg'],
             ['name' => 'Панкейки из гречневой муки с ягодным бескалорийным джемом', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/8999e073d24b3e3ecdd55bdfd8cb9fe3.jpg'],
             ['name' => 'Запеканка из обезжиренного творога', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/849b412e8c7da4daf099ac26009df943.jpg'],
             ['name' => 'Рассыпчатая греча с зеленью', 'calories' => 267, 'weight' => 250, 'image' => '/uploads/meals/54c43a4ed39a13d844b728bb50c496f5.jpg'],
