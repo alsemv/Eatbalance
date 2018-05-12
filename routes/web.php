@@ -22,7 +22,7 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
 
 Route::group(
     ['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'can:admin-panel']],
-    function (){
+    function () {
 
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'index']);
 
@@ -35,5 +35,14 @@ Route::group(
             Route::get('/', ['uses' => 'MenusController@index', 'as' => 'index']);
             Route::get('/create', ['uses' => 'MenusController@create', 'as' => 'create']);
         });
+    }
+);
+
+Route::group(
+    ['prefix' => 'menu', 'as' => 'menu.', 'Menu', 'middleware' => ['guest']],
+    function () {
+        Route::get('/start-menu-json', ['uses' => 'MenuController@start_menu_json', 'as' => 'start.json']);
+        Route::get('/meals-list-json/{menu_id}/{day_id}', ['uses' => 'MenuController@meals_list_json', 'as' => 'meals.json']);
+        Route::get('/select-menu-json/{id}', ['uses' => 'MenuController@select_menu_json', 'as' => 'select.json']);
     }
 );

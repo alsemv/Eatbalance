@@ -10394,3 +10394,16 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+[v-cloak] {
+  display: none;
+}
+
+.list-item {
+  text-align: center;
+}
+
+.day-button .active,
+.menu .active {
+  background: cadetblue;
+}
+
