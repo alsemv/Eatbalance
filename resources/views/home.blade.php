@@ -14,16 +14,21 @@
 
                         <div id="meals-list" v-cloak>
                             <div class="row py-5 menu">
-                                <div v-for="menu in menus" class="btn btn-light" :class="{ 'active': menu.id === current_menu}"
-                                        v-on:click="clickMenuBtn" v-bind:attr-menu="menu.id">@{{menu.name}}
+                                <div class="col-md-12">
+                                    <div v-for="menu in menus" class="btn btn-light"
+                                         :class="{ 'active': menu.id === current_menu}"
+                                         v-on:click="clickMenuBtn" v-bind:attr-menu="menu.id">@{{menu.name}}
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row py-5 day-button">
-                                <div v-for="(day, index) in menu_days" class="btn btn-light"
-                                        :class="{ 'active': day.week_day_id === current_day}" v-on:click="clickBtn"
-                                        v-bind:attr-menu="day.menu_id" v-bind:attr-day="day.week_day_id">
-                                    @{{ name_days[index] }}
+                                <div class="col-md-12">
+                                    <div v-for="(day, index) in menu_days" class="btn btn-light"
+                                         :class="{ 'active': day.week_day_id === current_day}" v-on:click="clickBtn"
+                                         v-bind:attr-menu="day.menu_id" v-bind:attr-day="day.week_day_id">
+                                        @{{ name_days[index] }}
+                                    </div>
                                 </div>
                             </div>
 
