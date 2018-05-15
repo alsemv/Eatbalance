@@ -38,8 +38,9 @@ class MenuRepository extends Repository
         $current_day = (int) date('N', time());
 
         $days_names = [];
-        foreach(($list_menu_days = $first_menu->menu_days) as $day){
-            $days_names[] = $day->week_day()->first()->name;
+
+        foreach(($list_menu_days = $first_menu->menu_days->load('week_day')) as $day){
+            $days_names[] = $day->week_day->name;
         }
 
         /**
@@ -64,8 +65,8 @@ class MenuRepository extends Repository
         $current_day = (int) date('N', time());
 
         $days_names = [];
-        foreach(($list_menu_days = $first_menu->menu_days) as $day){
-            $days_names[] = $day->week_day()->first()->name;
+        foreach(($list_menu_days = $first_menu->menu_days->load('week_day')) as $day){
+            $days_names[] = $day->week_day->name;
         }
 
         /**
