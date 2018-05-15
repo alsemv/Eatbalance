@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="card mb-3">
+    <div class="card mb-3 meal">
         <div class="card-header">Список Блюд</div>
         <div class="card-body">
+
+            <a href="{{route('admin.meal.create')}}" class="btn btn-light mb-3">Добавить блюдо</a>
 
             <form action="{{route('admin.meal.index')}}" method="GET">
                 <div class="row">
@@ -12,12 +14,7 @@
                             <input id="id" class="form-control" name="id" value="{{ request('id') }}">
                         </div>
                     </div>
-                    <div class="col-sm-2">
-                        <div class="form-group">
-
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-5">
                         <div class="form-group">
                             <label for="name" class="col-form-label">Название</label>
                             <input id="name" class="form-control" name="name" value="{{ request('name') }}">
@@ -52,16 +49,20 @@
                     <th>Название</th>
                     <th>Калории</th>
                     <th>Вес</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($meals as $meal)
                     <tr>
-                        <td>{{$meal->id}}</td>
+                        <td class="text-center">{{$meal->id}}</td>
                         <td><img class="img-fluid" src="{{$meal->image}}"></td>
                         <td>{{$meal->name}}</td>
-                        <td>{{$meal->calories}}</td>
-                        <td>{{$meal->weight}}</td>
+                        <td class="text-center">{{$meal->calories}}</td>
+                        <td class="text-center">{{$meal->weight}}</td>
+                        <td class="text-center"><a href="{{route('admin.meal.edit', ['id' => $meal->id])}}">Редак.</a></td>
+                        <td class="text-center"><a>Удалить</a></td>
                     </tr>
                 @endforeach
                 </tbody>
