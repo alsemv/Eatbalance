@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Meal extends Model
 {
+    protected $fillable = [
+        'name', 'calories', 'weight', 'image',
+    ];
+
     public function menu_days()
     {
         return $this->belongsToMany('App\Models\MenuDay', 'week_day_meals');

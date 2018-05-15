@@ -38,6 +38,10 @@ Route::group(
 
         Route::group(['prefix' => 'meal', 'as' => 'meal.'], function () {
             Route::get('/', ['uses' => 'MealController@index', 'as' => 'index']);
+            Route::get('/create', ['uses' => 'MealController@create', 'as' => 'create']);
+            Route::post('/store', ['uses' => 'MealController@store', 'as' => 'store']);
+            Route::get('/edit/{id}', ['uses' => 'MealController@edit', 'as' => 'edit']);
+            Route::post('/update', ['uses' => 'MealController@update', 'as' => 'update']);
         });
     }
 );
