@@ -26,20 +26,24 @@ Route::group(
 
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'index']);
 
-        Route::group(['prefix' => 'users', 'as' => 'users.'], function (){
-            Route::get('/', ['uses' => 'UsersController@index', 'as' => 'index']);
-            Route::get('/create', ['uses' => 'UsersController@create', 'as' => 'create']);
+        Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
+            Route::get('/', ['uses' => 'UserController@index', 'as' => 'index']);
+            Route::get('/create', ['uses' => 'UserController@create', 'as' => 'create']);
         });
 
-        Route::group(['prefix' => 'menus', 'as' => 'menus.'], function (){
-            Route::get('/', ['uses' => 'MenusController@index', 'as' => 'index']);
-            Route::get('/create', ['uses' => 'MenusController@create', 'as' => 'create']);
+        Route::group(['prefix' => 'menu', 'as' => 'menu.'], function () {
+            Route::get('/', ['uses' => 'MenuController@index', 'as' => 'index']);
+            Route::get('/create', ['uses' => 'MenuController@create', 'as' => 'create']);
+        });
+
+        Route::group(['prefix' => 'meal', 'as' => 'meal.'], function () {
+            Route::get('/', ['uses' => 'MealController@index', 'as' => 'index']);
         });
     }
 );
 
 Route::group(
-    ['prefix' => 'menu', 'as' => 'menu.', 'Menu', 'middleware' => ['guest']],
+    ['prefix' => 'menu', 'as' => 'menu.', 'Menu', 'middleware' => ['web']],
     function () {
         Route::get('/start-menu-json', ['uses' => 'MenuController@start_menu_json', 'as' => 'start.json']);
         Route::get('/meals-list-json/{menu_id}/{day_id}', ['uses' => 'MenuController@meals_list_json', 'as' => 'meals.json']);

@@ -77,11 +77,11 @@
             <nav id="sidebar" class="sidebar col-md-3 py-5">
                 <ul class="list-group">
                     <li class="list-group-item {{ (\Request::is('admin') ? 'active' : '') }}"><a href="{{route('admin.index')}}">Главная</a></li>
-                    <li class="list-group-item {{ (\Request::is('admin/users') ? 'active' : '') }}"><a href="{{route('admin.users.index')}}">Пользователи</a></li>
-                    <li class="list-group-item sub-item {{ (\Request::is('admin/users/create') ? 'active' : '') }}"><a href="{{route('admin.users.create')}}">Добавить пользователя</a></li>
-                    <li class="list-group-item {{ (\Request::is('admin/menus') ? 'active' : '') }}"><a href="{{route('admin.menus.index')}}">Меню</a></li>
-                    <li class="list-group-item sub-item {{ (\Request::is('admin/menus/create') ? 'active' : '') }}"><a href="{{route('admin.menus.create')}}">Добавить меню</a></li>
-                    <li class="list-group-item"><a href="">Блюда</a></li>
+                    <li class="list-group-item {{ (\Request::is('admin/user') ? 'active' : '') }}"><a href="{{route('admin.user.index')}}">Пользователи</a></li>
+                    <li class="list-group-item sub-item {{ (\Request::is('admin/user/create') ? 'active' : '') }}"><a href="{{route('admin.user.create')}}">Добавить пользователя</a></li>
+                    <li class="list-group-item {{ (\Request::is('admin/menu') ? 'active' : '') }}"><a href="{{route('admin.menu.index')}}">Меню</a></li>
+                    <li class="list-group-item sub-item {{ (\Request::is('admin/menu/create') ? 'active' : '') }}"><a href="{{route('admin.menu.create')}}">Добавить меню</a></li>
+                    <li class="list-group-item {{ (\Request::is('admin/meal') ? 'active' : '') }}"><a href="{{route('admin.meal.index')}}">Блюда</a></li>
                     <li class="list-group-item"><a href="">Заказы</a></li>
                     <li class="list-group-item"><a href="">Бонусы</a></li>
                 </ul>
