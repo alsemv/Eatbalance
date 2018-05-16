@@ -43,28 +43,28 @@
 
             <table class="table table-bordered table-striped">
                 <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Фото</th>
-                    <th>Название</th>
-                    <th>Калории</th>
-                    <th>Вес</th>
-                    <th></th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>№</th>
+                        <th>Фото</th>
+                        <th>Название</th>
+                        <th>Калории</th>
+                        <th>Вес</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach($meals as $meal)
-                    <tr>
-                        <td class="text-center">{{$meal->id}}</td>
-                        <td><img class="img-fluid" src="{{$meal->image}}"></td>
-                        <td>{{$meal->name}}</td>
-                        <td class="text-center">{{$meal->calories}}</td>
-                        <td class="text-center">{{$meal->weight}}</td>
-                        <td class="text-center"><a href="{{route('admin.meal.edit', ['id' => $meal->id])}}">Редак.</a></td>
-                        <td class="text-center"><a>Удалить</a></td>
-                    </tr>
-                @endforeach
+                    @foreach($meals as $meal)
+                        <tr>
+                            <td class="text-center">{{$meal->id}}</td>
+                            <td><img class="img-fluid" src="{{$meal->image}}"></td>
+                            <td>{{$meal->name}}</td>
+                            <td class="text-center">{{$meal->calories}}</td>
+                            <td class="text-center">{{$meal->weight}}</td>
+                            <td class="text-center"><a href="{{route('admin.meal.edit', ['id' => $meal->id])}}">Ред.</a></td>
+                            <td class="text-center"><a href="{{route('admin.meal.delete', ['id' => $meal->id])}}" onclick="return confirm('Вы действительно хотите удалить?')">Удалить</a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
             {{ $meals->links() }}

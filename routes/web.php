@@ -41,7 +41,8 @@ Route::group(
             Route::get('/create', ['uses' => 'MealController@create', 'as' => 'create']);
             Route::post('/store', ['uses' => 'MealController@store', 'as' => 'store']);
             Route::get('/edit/{id}', ['uses' => 'MealController@edit', 'as' => 'edit']);
-            Route::post('/update', ['uses' => 'MealController@update', 'as' => 'update']);
+            Route::post('/update/{id}', ['uses' => 'MealController@update', 'as' => 'update']);
+            Route::get('/delete/{id}', ['uses' => 'MealController@delete', 'as' => 'delete']);
         });
     }
 );
