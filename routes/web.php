@@ -33,6 +33,7 @@ Route::group(
 
         Route::group(['prefix' => 'menu', 'as' => 'menu.'], function () {
             Route::get('/', ['uses' => 'MenuController@index', 'as' => 'index']);
+            Route::get('/show/{id}', ['uses' => 'MenuController@show', 'as' => 'show']);
             Route::get('/create', ['uses' => 'MenuController@create', 'as' => 'create']);
         });
 
