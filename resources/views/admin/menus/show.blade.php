@@ -55,7 +55,7 @@
                         <td class="text-center">{{$meal->calories}}</td>
                         <td class="text-center">{{$meal->weight}}</td>
                         <td class="text-center">{{$meal->day_name}}</td>
-                        <td class="text-center"><a href="">Ред.</a></td>
+                        <td class="text-center"><a href="{{route('admin.menu.edit', ['day_id' => $meal->day_id, 'meal_id' => $meal->meal_id, 'time_id' => $meal->time_id])}}">Ред.</a></td>
                         <td class="text-center"><a href="" onclick="return confirm('Вы действительно хотите удалить?')">Удалить</a></td>
                     </tr>
                 @endforeach
