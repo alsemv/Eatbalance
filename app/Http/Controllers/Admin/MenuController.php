@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\MealTime;
+use App\Models\MenuDay;
 use App\Models\WeekDay;
 use App\Models\WeekDayMeal;
 use App\Reposotories\Menu\MenuRepository;
@@ -38,9 +39,9 @@ class MenuController extends Controller
         return view('admin.menus.create');
     }
 
-    public function edit($day_id, $meal_id, $time_id)
+    public function edit($day_id, $meal_id, $time_id, $menu_id)
     {
-        $week_days = WeekDay::pluck('id', 'name');
+        $week_days = MenuDay::where('menu_id', $menu_id)->with('week_day')->get();
         $meal_times = MealTime::pluck('id', 'name');
 
         $menu_meal = $this->menu_repository->meal($day_id, $meal_id, $time_id);
@@ -52,10 +53,18 @@ class MenuController extends Controller
     {
         WeekDayMeal::where('id', $request['id'])
             ->update([
-                //'menu_day_id' => $request['day_id'],
+                'menu_day_id' => $request['day_id'],
                 'meal_time_id' => $request['time_id'],
             ]);
 
-        return redirect()->route('admin.menu.edit');
+        return redirect()->route('admin.menu.show', ['id' => $request['menu_id']]);
+    }
+
+    public function delete($id)
+    {
+        $menu_item = WeekDayMeal::findOrFail($id);
+        $menu_item->delete();
+
+        return redirect()->back();
     }
 }

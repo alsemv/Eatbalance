@@ -19,11 +19,11 @@
                         <div class="form-group">
                             <label for="day" class="col-form-label">День</label>
                             <select class="form-control" name="day_id" id="day">
-                                @foreach($week_days as $key => $value)
-                                    <option value="{{$value}}" {{$value == $menu_meal->week_day_id ? "selected='selected'":""}}>{{$key}}</option>
+                                @foreach($week_days as $week_day)
+                                    <option value="{{$week_day->id}}" {{$week_day->id == $menu_meal->menu_day_id ? "selected='selected'":""}}>{{$week_day->week_day->name}}</option>
                                 @endforeach
                             </select>
-
+                            <input type="hidden" name="menu_id" value="{{$menu_meal->menu_id}}">
                             @csrf
                         </div>
                     </div>

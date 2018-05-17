@@ -111,14 +111,15 @@ class MenuRepository extends Repository
             ->join('week_day_meals', 'menu_days.id', '=', 'week_day_meals.menu_day_id')
             ->join('meal_times', 'week_day_meals.meal_time_id', '=', 'meal_times.id')
             ->join('meals', 'week_day_meals.meal_id', '=', 'meals.id')
-//            ->orderBy('week_days.id', 'asc')
-//            ->orderBy('meal_times.order', 'asc')
+            ->orderBy('week_days.id', 'asc')
+            ->orderBy('meal_times.order', 'asc')
             ->select(
                 'meal_times.name as time_name',
                 'meals.name', 'meals.calories',
                 'meals.weight',
                 'meals.image',
                 'week_days.name as day_name',
+                'week_day_meals.id as week_day_meals_id',
                 'week_day_meals.meal_id as meal_id',
                 'week_day_meals.meal_time_id as time_id',
                 'week_day_meals.menu_day_id as day_id'
@@ -153,8 +154,8 @@ class MenuRepository extends Repository
                 'menus.id as menu_id',
                 'menus.name as menu_name',
                 'meals.name as meal_name',
-                'week_days.id as week_day_id',
-                'meal_times.id as meal_time_id'
+                'meal_times.id as meal_time_id',
+                'week_day_meals.menu_day_id'
             )
             ->first();
     }
