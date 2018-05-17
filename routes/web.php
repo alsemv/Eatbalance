@@ -33,7 +33,11 @@ Route::group(
 
         Route::group(['prefix' => 'menu', 'as' => 'menu.'], function () {
             Route::get('/', ['uses' => 'MenuController@index', 'as' => 'index']);
+            Route::get('/show/{id}', ['uses' => 'MenuController@show', 'as' => 'show']);
             Route::get('/create', ['uses' => 'MenuController@create', 'as' => 'create']);
+            Route::get('/edit/{day_id}/{meal_id}/{time_id}/{menu_id}', ['uses' => 'MenuController@edit', 'as' => 'edit']);
+            Route::post('/update/{id}', ['uses' => 'MenuController@update', 'as' => 'update']);
+            Route::get('/item/delete/{id}', ['uses' => 'MenuController@delete', 'as' => 'item.delete']);
         });
 
         Route::group(['prefix' => 'meal', 'as' => 'meal.'], function () {
