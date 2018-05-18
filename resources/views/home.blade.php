@@ -1,25 +1,33 @@
 @extends('layouts.app')
 
 @section('yellow')
-    <div style="background-image: url('/uploads/backgrounds/orange_back.png'); height: 650px; margin-top: 0">
-        <div class="container">
+    <div class="wraper">
+        <div class="container-fluid">
             <div class="justify-content-center">
                 <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6">
-                            <div style="margin-top: 8vw" class="havka">
-                                Правильное питание<br> с доставкой на дом
-                            </div>
-                            <div class="no_limits">
+                    <div class="row no-gutters">
+                        <div class="col-md-6 col-lg-5 col-xl-5 col-sm-12 offset-lg-1">
+                            <h1 style="margin-top: 8vw" class="havka col-sm-12 text-center text-md-left text-lg-left text-xl-left">
+                                Правильное питание с доставкой на дом
+                            </h1>
+                            <div class="no_limits col-sm-12 text-center text-md-left text-lg-left text-xl-left">
                                 Без диет и ограничений <b>24/7</b>
                             </div>
-                            <div>
-                                <button class="raise" style="background-color: black; color: white">Заказать</button>
+                            <div class="col-sm-12">
+                                <img class="d-block d-sm-block d-md-none d-lg-none d-xl-none img-fluid" src="/uploads/figures/lunch_box.png"
+                                     alt="lunch_box" style="margin-bottom: 50px; margin-top: 10px; margin-left: 5px">
+                            </div>
+                            <div style="margin-top: 4vw;" class="d-block d-sm-block d-md-none d-lg-none d-xl-none">
+                                <button class="raise" style="background-color: black; color: white; width: 100%; height: 8vmax">Заказать</button>
+                            </div>
+                            <div style="margin-top: 4vw; margin-left: 15px" class="d-none d-sm-none d-md-block">
+                                <button class="raise" style="background-color: black; color: white; width: 200px;">Заказать</button>
                             </div>
                         </div>
-                        <div class="col-xs-6 col-sm-6">
-                            <div style="margin-top: 15vw">
-                                <img class="d-none d-sm-none d-md-block" src="/uploads/figures/lunch_box.png" alt="lunch_box" width="135%">
+                        <div class="col-6">
+                            <div style="margin-top: 15vw;">
+                                <img class="d-none d-sm-none d-md-block img-fluid" src="/uploads/figures/lunch_box.png"
+                                     alt="lunch_box" style="margin-bottom: 50px">
                             </div>
                         </div>
                     </div>

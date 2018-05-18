@@ -25,16 +25,18 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background-image: url('/uploads/logos/transparent.png'), url('/uploads/backgrounds/orange_back.png')">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel wraper2">
+
+        <div class="container">
+                <a class="navbar-brand col" href="{{ url('/') }}">
                     <img src="/uploads/logos/top_logo.png" alt="top_logo">
                 </a>
                 <img src="/uploads/figures/pipe.png" alt="pipe" height="46px" class="d-none d-sm-none d-md-block">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <div class="dropdown show" style=" margin-right: 5px">
@@ -55,14 +57,13 @@
                         <!-- Authentication Links -->
 
                         <li><a class="nav-link text-white hover_gray" href="#">{{ __('МЕНЮ') }}</a></li>
-                        <li><a class="nav-link text-white hover_gray" href="#">{{ __('ПОЧЕМУ ЭТО ТАК УДОБНО?') }}</a></li>
+                        <li><a class="nav-link text-white hover_gray d-md-none d-lg-block" href="#">{{ __('ПОЧЕМУ ЭТО ТАК УДОБНО?') }}</a></li>
                         <li><a class="nav-link text-white hover_gray" href="#">{{ __('ОТЗЫВЫ') }}</a></li>
                         <li><a class="nav-link text-white hover_gray" href="#">{{ __('ВОПРОСЫ') }}</a></li>
-                        <li><a class="nav-link text-white hover_gray" href="#">{{ __('ЗАКАЗАТЬ') }}</a></li>
                         <li><a class="nav-link text-white hover_gray" href="#">{{ __('БЛОГ') }}</a></li>
                         @guest
                             <li><a class="nav-link text-white hover_gray" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link text-white hover_gray" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+{{--                            <li><a class="nav-link text-white hover_gray" href="{{ route('register') }}">{{ __('Register') }}</a></li>--}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -113,15 +113,13 @@ button:focus {
   color: #fff;
 }
 
-button {
+.raise {
   background: none;
   border: 2px solid black;
   border-radius: 25px;
-  width: 200px;
   font: inherit;
   line-height: 1;
   padding: 1em 2em;
-  margin-top: 5em;
 }
 
 h1 {

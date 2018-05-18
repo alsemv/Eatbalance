@@ -1,6 +1,26 @@
-.navbar-toggler .navbar-toggler-icon{
-  width: 50px !important;
-  height:3px !important;
+.col
+{
+  margin: 0 !important;
+}
+
+.wraper
+{
+  background: url(/uploads/backgrounds/orange_back.png) no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 400px;
+}
+
+.wraper2
+{
+  background: url(/uploads/logos/transparent.png), url(/uploads/backgrounds/orange_back.png) no-repeat top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  min-height: 100px;
 }
 
 .py-4
@@ -10,7 +30,7 @@
 
 .havka
 {
-  font-size: 3.5vw;
+  font-size: 3.5vmax;
   margin-top: 9vw;
   color: white;
   font-weight: bold;
@@ -19,7 +39,6 @@
 .no_limits
 {
   font-size: 23px;
-  margin-top: 0.1vw;
 }
 
 .navbar
