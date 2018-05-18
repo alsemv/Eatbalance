@@ -1,0 +1,74 @@
+.navbar-toggler .navbar-toggler-icon{
+  width: 50px !important;
+  height:3px !important;
+}
+
+.py-4
+{
+  padding-top: 0 !important;
+}
+
+.havka
+{
+  font-size: 3.5vw;
+  margin-top: 9vw;
+  color: white;
+  font-weight: bold;
+}
+
+.no_limits
+{
+  font-size: 23px;
+  margin-top: 0.1vw;
+}
+
+.navbar
+{
+  margin-bottom: 0 !important;
+}
+
+.hover_gray
+{
+  font-size: 13px;
+  &:hover
+  {
+    color: lightgray !important;
+  }
+}
+
+.city
+{
+  color: white;
+  background: none;
+  border: none;
+  display: inline-block;
+}
+
+.city:hover
+{
+  color: lightgray;
+}
+
+.cities
+{
+  display: none;
+  color: dimgray;
+}
+
+.cities a
+{
+  text-align: center;
+  background: rgba(0, 0, 0, .19);
+  width: 100%;
+}
+
+.mini_city
+{
+  padding: 4px;
+  color: white;
+}
+
+.mini_city:hover
+{
+  background: rgba(0, 0, 0, .3);
+}

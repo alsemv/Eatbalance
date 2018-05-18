@@ -1,5 +1,34 @@
 @extends('layouts.app')
 
+@section('yellow')
+    <div style="background-image: url('/uploads/backgrounds/orange_back.png'); height: 650px; margin-top: 0">
+        <div class="container">
+            <div class="justify-content-center">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                            <div style="margin-top: 8vw" class="havka">
+                                Правильное питание<br> с доставкой на дом
+                            </div>
+                            <div class="no_limits">
+                                Без диет и ограничений <b>24/7</b>
+                            </div>
+                            <div>
+                                <button class="raise" style="background-color: black; color: white">Заказать</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <div style="margin-top: 15vw">
+                                <img class="d-none d-sm-none d-md-block" src="/uploads/figures/lunch_box.png" alt="lunch_box" width="135%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
