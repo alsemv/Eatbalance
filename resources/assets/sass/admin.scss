@@ -1,0 +1,26 @@
+.admin{
+    .sidebar{
+        a{
+            display: block;
+            text-decoration: none;
+            color: #4e555b;
+            cursor: pointer;
+            padding: 0.75rem 1.25rem;
+            &:hover{
+                color: #4e555b;
+            }
+        }
+        .active > a{
+            color: #fff;
+        }
+        .list-group-item{
+            padding: 0;
+            &.sub-item{
+                padding-left: 2.25rem;
+            }
+        }
+    }
+    .meal{
+
+    }
+}
