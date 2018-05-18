@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\MealTime;
-use App\Models\MenuDay;
-use App\Models\WeekDay;
-use App\Models\WeekDayMeal;
+use App\Http\Requests\Menu\CreateRequest;
+use App\Models\Menu;
 use App\Reposotories\Menu\MenuRepository;
 use Illuminate\Http\Request;
 
@@ -39,32 +37,32 @@ class MenuController extends Controller
         return view('admin.menus.create');
     }
 
-    public function edit($day_id, $meal_id, $time_id, $menu_id)
+    public function store(CreateRequest $request)
     {
-        $week_days = MenuDay::where('menu_id', $menu_id)->with('week_day')->get();
-        $meal_times = MealTime::pluck('id', 'name');
+        Menu::create([
+            'name' => $request['name'],
+            'price' => $request['price'],
+        ]);
 
-        $menu_meal = $this->menu_repository->meal($day_id, $meal_id, $time_id);
+        /**
+         * Добавить в таблицу menu_days все дни для нового меню
+         */
 
-        return view('admin.menus.edit', ['week_days' => $week_days, 'meal_times' => $meal_times, 'menu_meal' => $menu_meal]);
+        return redirect()->route('admin.menu.index');
+    }
+
+    public function edit($id)
+    {
+
     }
 
     public function update(Request $request)
     {
-        WeekDayMeal::where('id', $request['id'])
-            ->update([
-                'menu_day_id' => $request['day_id'],
-                'meal_time_id' => $request['time_id'],
-            ]);
 
-        return redirect()->route('admin.menu.show', ['id' => $request['menu_id']]);
     }
 
     public function delete($id)
     {
-        $menu_item = WeekDayMeal::findOrFail($id);
-        $menu_item->delete();
 
-        return redirect()->back();
     }
 }

@@ -80,7 +80,7 @@
                     <li class="list-group-item {{ (\Request::is('admin/user') ? 'active' : '') }}"><a href="{{route('admin.user.index')}}">Пользователи</a></li>
                     <li class="list-group-item sub-item {{ (\Request::is('admin/user/create') ? 'active' : '') }}"><a href="{{route('admin.user.create')}}">Добавить пользователя</a></li>
                     <li class="list-group-item {{ (\Request::is('admin/menu') ? 'active' : '') }}"><a href="{{route('admin.menu.index')}}">Меню</a></li>
-                    <li class="list-group-item sub-item {{ (\Request::is('admin/menu/create') ? 'active' : '') }}"><a href="{{route('admin.menu.create')}}">Добавить меню</a></li>
+                    <li class="list-group-item sub-item {{ (\Request::is('admin/menu/create') ? 'active' : '') }}"><a href="">Добавить меню</a></li>
                     <li class="list-group-item {{ (\Request::is('admin/meal') ? 'active' : '') }}"><a href="{{route('admin.meal.index')}}">Блюда</a></li>
                     <li class="list-group-item"><a href="">Заказы</a></li>
                     <li class="list-group-item"><a href="">Бонусы</a></li>
