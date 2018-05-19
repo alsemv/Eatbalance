@@ -3,16 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\MealTime;
+use App\Http\Requests\Menu\CreateRequest;
+use App\Models\Menu;
 use App\Models\MenuDay;
-use App\Models\WeekDay;
-use App\Models\WeekDayMeal;
 use App\Reposotories\Menu\MenuRepository;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
-    protected $menu_repository;
+    private $menu_repository;
+
+    private $week_days = [
+        'Понедельник' => 1,
+        'Вторник' => 2,
+        'Среда' => 3,
+        'Четверг' => 4,
+        'Пятница' => 5,
+        'Субботу' => 6,
+        'Воскресенье' => 7
+    ];
 
     public function __construct()
     {
@@ -39,32 +48,52 @@ class MenuController extends Controller
         return view('admin.menus.create');
     }
 
-    public function edit($day_id, $meal_id, $time_id, $menu_id)
+    public function store(CreateRequest $request)
     {
-        $week_days = MenuDay::where('menu_id', $menu_id)->with('week_day')->get();
-        $meal_times = MealTime::pluck('id', 'name');
+        $menu = Menu::create([
+            'name' => $request['name'],
+            'price' => $request['price'],
+        ]);
 
-        $menu_meal = $this->menu_repository->meal($day_id, $meal_id, $time_id);
+        $this->assignMenuToWeekDays($menu->id);
 
-        return view('admin.menus.edit', ['week_days' => $week_days, 'meal_times' => $meal_times, 'menu_meal' => $menu_meal]);
+        return redirect()->route('admin.menu.index');
     }
 
-    public function update(Request $request)
+    private function assignMenuToWeekDays($menu_id): void
     {
-        WeekDayMeal::where('id', $request['id'])
-            ->update([
-                'menu_day_id' => $request['day_id'],
-                'meal_time_id' => $request['time_id'],
+        foreach ($this->week_days as $day)
+        {
+            MenuDay::create([
+                'menu_id' => $menu_id,
+                'week_day_id' => $day,
             ]);
+        }
+    }
 
-        return redirect()->route('admin.menu.show', ['id' => $request['menu_id']]);
+    public function edit($id)
+    {
+        $menu = Menu::findOrFail($id);
+
+        return view('admin.menus.edit', ['menu' => $menu]);
+    }
+
+    public function update(CreateRequest $request)
+    {
+        Menu::where('id', $request['id'])->update([
+                'name' => $request['name'],
+                'price' => $request['price'],
+            ]
+        );
+
+        return redirect()->route('admin.menu.index');
     }
 
     public function delete($id)
     {
-        $menu_item = WeekDayMeal::findOrFail($id);
-        $menu_item->delete();
+        $menu = Menu::findOrFail($id);
+        $menu->delete();
 
-        return redirect()->back();
+        return redirect()->route('admin.menu.index');
     }
 }

@@ -26968,3 +26968,5 @@
 [2018-05-07 14:49:16][1] Processed:  App\Jobs\SendVerificationEmail
 [2018-05-14 06:58:13][1] Processing: App\Jobs\SendVerificationEmail
 [2018-05-14 06:58:14][1] Processed:  App\Jobs\SendVerificationEmail
+[2018-05-17 09:05:36][1] Processing: App\Jobs\SendVerificationEmail
+[2018-05-17 09:05:37][1] Processed:  App\Jobs\SendVerificationEmail

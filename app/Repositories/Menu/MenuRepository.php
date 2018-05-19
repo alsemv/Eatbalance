@@ -154,6 +154,7 @@ class MenuRepository extends Repository
                 'menus.id as menu_id',
                 'menus.name as menu_name',
                 'meals.name as meal_name',
+                'meals.id as meal_id',
                 'meal_times.id as meal_time_id',
                 'week_day_meals.menu_day_id'
             )

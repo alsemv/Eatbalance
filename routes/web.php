@@ -35,9 +35,18 @@ Route::group(
             Route::get('/', ['uses' => 'MenuController@index', 'as' => 'index']);
             Route::get('/show/{id}', ['uses' => 'MenuController@show', 'as' => 'show']);
             Route::get('/create', ['uses' => 'MenuController@create', 'as' => 'create']);
-            Route::get('/edit/{day_id}/{meal_id}/{time_id}/{menu_id}', ['uses' => 'MenuController@edit', 'as' => 'edit']);
+            Route::post('/store', ['uses' => 'MenuController@store', 'as' => 'store']);
+            Route::get('/edit/{id}', ['uses' => 'MenuController@edit', 'as' => 'edit']);
             Route::post('/update/{id}', ['uses' => 'MenuController@update', 'as' => 'update']);
-            Route::get('/item/delete/{id}', ['uses' => 'MenuController@delete', 'as' => 'item.delete']);
+            Route::get('/delete/{id}', ['uses' => 'MenuController@delete', 'as' => 'delete']);
+
+            Route::group(['prefix' => 'item', 'as' => 'item.'], function (){
+                Route::get('/create/{menu_id}', ['uses' => 'MenuItemController@create', 'as' => 'create']);
+                Route::post('/store', ['uses' => 'MenuItemController@store', 'as' => 'store']);
+                Route::get('/edit/{day_id}/{meal_id}/{time_id}/{menu_id}', ['uses' => 'MenuItemController@edit', 'as' => 'edit']);
+                Route::post('/update/{id}', ['uses' => 'MenuItemController@update', 'as' => 'update']);
+                Route::get('/delete/{id}', ['uses' => 'MenuItemController@delete', 'as' => 'delete']);
+            });
         });
 
         Route::group(['prefix' => 'meal', 'as' => 'meal.'], function () {
