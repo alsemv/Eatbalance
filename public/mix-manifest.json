@@ -4,6 +4,7 @@
     "/css/admin.css": "/css/admin.css",
     "/css/fonts.css": "/css/fonts.css",
     "/css/buttons.css": "/css/buttons.css",
+    "/js/move.js": "/js/move.js",
     "/js/custom.js": "/js/custom.js",
     "/js/admin.js": "/js/admin.js"
 }

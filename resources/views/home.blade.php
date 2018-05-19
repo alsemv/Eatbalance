@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('yellow')
-    <div class="wraper">
+    <div id="yellow" class="wraper" onmouseover="activate(this)">
         <div class="container-fluid">
             <div class="justify-content-center">
                 <div class="col-md-12">
@@ -18,10 +18,10 @@
                                      alt="lunch_box" style="margin-bottom: 50px; margin-top: 10px; margin-left: 5px">
                             </div>
                             <div style="margin-top: 4vw;" class="d-block d-sm-block d-md-none d-lg-none d-xl-none">
-                                <button class="raise" style="background-color: black; color: white; width: 100%; height: 8vmax">Заказать</button>
+                                <a id="here" href="#meals-list"><button class="raise" style="background-color: black; color: white; width: 100%; height: 8vmax">Заказать</button></a>
                             </div>
                             <div style="margin-top: 4vw; margin-left: 15px" class="d-none d-sm-none d-md-block">
-                                <button class="raise" style="background-color: black; color: white; width: 200px;">Заказать</button>
+                                <a id="here2" href="#meals-list"><button class="raise" style="background-color: black; color: white; width: 200px;" onclick="move()">Заказать</button></a>
                             </div>
                         </div>
                         <div class="col-6">
@@ -34,14 +34,30 @@
                 </div>
             </div>
         </div>
+        <div class="side_nav">
+            <a id="one_nav" href="#top_nav"><img src="/uploads/figures/active_side_nav.png" class="nav_circle" alt="circle" id="one" onclick="muteAll(this)"></a>
+            <br>
+            <a id="two_nav" href="#meals-list"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="two" onclick="muteAll(this)"></a>
+            <br>
+            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="three" onclick="muteAll(this)"></a>
+            <br>
+            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="four" onclick="muteAll(this)"></a>
+            <br>
+            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="five" onclick="muteAll(this)"></a>
+            <br>
+            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="six" onclick="muteAll(this)"></a>
+            <br>
+            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="seven" onclick="muteAll(this)"></a>
+        </div>
     </div>
 @endsection
 
 @section('content')
+<div id="black_menu" class="wraper3" onmouseover="activate(this)">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card" style="background-color: black">
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success">
@@ -50,17 +66,19 @@
                         @endif
 
                         <div id="meals-list" v-cloak>
-                            <div class="row py-5 menu">
+                            <div class="row py-3 menu">
                                 <div class="col-md-12">
-                                    <div v-for="menu in menus" class="btn btn-light"
+                                    <div class="row justify-content-around">
+                                    <div v-for="menu in menus" class="btn raise food_butt btn-light col-2"
                                          :class="{ 'active': menu.id === current_menu}"
                                          v-on:click="clickMenuBtn" v-bind:attr-menu="menu.id">@{{menu.name}}
+                                    </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row py-5 day-button">
-                                <div class="col-md-12">
+                                <div class="col-md-1">
                                     <div v-for="(day, index) in menu_days" class="btn btn-light"
                                          :class="{ 'active': day.week_day_id === current_day}" v-on:click="clickBtn"
                                          v-bind:attr-menu="day.menu_id" v-bind:attr-day="day.week_day_id">
@@ -82,4 +100,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

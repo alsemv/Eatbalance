@@ -13,6 +13,37 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
+    <script src="{{ asset('js/move.js') }}" defer></script>
+    <script>
+        function muteAll(img)
+        {
+            document.getElementById("one").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("two").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("three").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("four").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("five").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("six").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("seven").src = "/uploads/figures/muted_side_nav.png";
+            img.src = "/uploads/figures/active_side_nav.png";
+        }
+        function activate(block) {
+            document.getElementById("one").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("two").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("three").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("four").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("five").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("six").src = "/uploads/figures/muted_side_nav.png";
+            document.getElementById("seven").src = "/uploads/figures/muted_side_nav.png";
+            if (block.id === "yellow")
+            {
+                document.getElementById("one").src = "/uploads/figures/active_side_nav.png";
+            }
+            if (block.id === "black_menu")
+            {
+                document.getElementById("two").src = "/uploads/figures/active_side_nav.png";
+            }
+        }
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -25,8 +56,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel wraper2">
-
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel wraper2" id="top_nav">
         <div class="container">
                 <a class="navbar-brand col" href="{{ url('/') }}">
                     <img src="/uploads/logos/top_logo.png" alt="top_logo">
@@ -87,7 +117,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('yellow')
             @yield('content')

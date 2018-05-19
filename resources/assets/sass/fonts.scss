@@ -1,3 +1,20 @@
+.side_nav
+{
+  position: fixed;
+  left: 98%;
+  top: 25%;
+}
+
+.nav_circle
+{
+  width: 12px;
+  &:hover
+  {
+    background-image: url("/uploads/figures/active_side_nav.png");
+    width: 15px;
+  }
+}
+
 .col
 {
   margin: 0 !important;
@@ -21,6 +38,16 @@
   background-size: cover;
   -o-background-size: cover;
   min-height: 100px;
+}
+
+.wraper3
+{
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  min-height: 400px;
 }
 
 .py-4
