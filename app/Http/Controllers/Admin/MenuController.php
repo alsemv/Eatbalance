@@ -5,12 +5,23 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Menu\CreateRequest;
 use App\Models\Menu;
+use App\Models\MenuDay;
 use App\Reposotories\Menu\MenuRepository;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
-    protected $menu_repository;
+    private $menu_repository;
+
+    private $week_days = [
+        'Понедельник' => 1,
+        'Вторник' => 2,
+        'Среда' => 3,
+        'Четверг' => 4,
+        'Пятница' => 5,
+        'Субботу' => 6,
+        'Воскресенье' => 7
+    ];
 
     public function __construct()
     {
@@ -39,30 +50,50 @@ class MenuController extends Controller
 
     public function store(CreateRequest $request)
     {
-        Menu::create([
+        $menu = Menu::create([
             'name' => $request['name'],
             'price' => $request['price'],
         ]);
 
-        /**
-         * Добавить в таблицу menu_days все дни для нового меню
-         */
+        $this->assignMenuToWeekDays($menu->id);
 
         return redirect()->route('admin.menu.index');
     }
 
-    public function edit($id)
+    private function assignMenuToWeekDays($menu_id): void
     {
-
+        foreach ($this->week_days as $day)
+        {
+            MenuDay::create([
+                'menu_id' => $menu_id,
+                'week_day_id' => $day,
+            ]);
+        }
     }
 
-    public function update(Request $request)
+    public function edit($id)
     {
+        $menu = Menu::findOrFail($id);
 
+        return view('admin.menus.edit', ['menu' => $menu]);
+    }
+
+    public function update(CreateRequest $request)
+    {
+        Menu::where('id', $request['id'])->update([
+                'name' => $request['name'],
+                'price' => $request['price'],
+            ]
+        );
+
+        return redirect()->route('admin.menu.index');
     }
 
     public function delete($id)
     {
+        $menu = Menu::findOrFail($id);
+        $menu->delete();
 
+        return redirect()->route('admin.menu.index');
     }
 }

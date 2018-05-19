@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class MenuDay extends Model
 {
+    protected $fillable = [
+        'menu_id', 'week_day_id',
+    ];
+
     public function menu()
     {
         return $this->belongsTo('App\Models\Menu');
