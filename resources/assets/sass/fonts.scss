@@ -1,3 +1,18 @@
+.menu_butt
+{
+  color: white;
+  &:hover
+  {
+    background-color: #525252;
+  }
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.active{
+  background-color: #525252;
+}
+
 .side_nav
 {
   position: fixed;

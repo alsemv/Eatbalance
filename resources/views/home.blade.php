@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('yellow')
-    <div id="yellow" class="wraper" onmouseover="activate(this)">
+    <div id="yellow" class="wraper" onmouseover="activate(this)" xmlns:v-bind="http://www.w3.org/1999/xhtml">
         <div class="container-fluid">
             <div class="justify-content-center">
                 <div class="col-md-12">
@@ -69,9 +69,9 @@
                             <div class="row py-3 menu">
                                 <div class="col-md-12">
                                     <div class="row justify-content-around">
-                                    <div v-for="menu in menus" class="btn raise food_butt btn-light col-2"
+                                    <div v-for="menu in menus" class="btn menu_butt col-2"
                                          :class="{ 'active': menu.id === current_menu}"
-                                         v-on:click="clickMenuBtn" v-bind:attr-menu="menu.id">@{{menu.name}}
+                                         v-on:click="clickMenuBtn" v-bind:attr-menu="menu.id"><img style="width: 20px;" src="/uploads/figures/bananas.png" alt="bananas"> @{{menu.name}}
                                     </div>
                                     </div>
                                 </div>

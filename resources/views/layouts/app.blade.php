@@ -26,7 +26,8 @@
             document.getElementById("seven").src = "/uploads/figures/muted_side_nav.png";
             img.src = "/uploads/figures/active_side_nav.png";
         }
-        function activate(block) {
+        function activate(block)
+        {
             document.getElementById("one").src = "/uploads/figures/muted_side_nav.png";
             document.getElementById("two").src = "/uploads/figures/muted_side_nav.png";
             document.getElementById("three").src = "/uploads/figures/muted_side_nav.png";
@@ -42,6 +43,10 @@
             {
                 document.getElementById("two").src = "/uploads/figures/active_side_nav.png";
             }
+        }
+        function muteMenu()
+        {
+            this.css('background-color', '#525252');
         }
     </script>
 

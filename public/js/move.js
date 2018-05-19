@@ -112,6 +112,13 @@ $(document).ready(function () {
     });
 });
 
+var vm = new Vue({
+    el: '#buttons',
+    data: {
+        activeBtn: ''
+    }
+});
+
 /***/ })
 
 /******/ });

@@ -36,3 +36,11 @@ $(document).ready(function(){
         $('body,html').animate({scrollTop: top}, 500);
     });
 });
+
+let vm = new Vue({
+    el: '#buttons',
+    data: {
+        activeBtn:''
+    }
+});
+
