@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('yellow')
-    <div id="yellow" class="wraper" onmouseover="activate(this)" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-        <div class="container-fluid">
+    <div class="wraper" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+        <div class="container-fluid" id="yellow" onmouseover="activate(this)">
             <div class="justify-content-center">
                 <div class="col-md-12">
                     <div class="row no-gutters">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-6">
                             <div style="margin-top: 15vw;">
-                                <img class="d-none d-sm-none d-md-block img-fluid" src="/uploads/figures/lunch_box.png"
+                                <img id="lunch" class="d-none d-sm-none d-md-block img-fluid" src="/uploads/figures/lunch_box.png"
                                      alt="lunch_box" style="margin-bottom: 50px">
                             </div>
                         </div>
@@ -35,26 +35,26 @@
             </div>
         </div>
         <div class="side_nav">
-            <a id="one_nav" href="#top_nav"><img src="/uploads/figures/active_side_nav.png" class="nav_circle" alt="circle" id="one" onclick="muteAll(this)"></a>
+            <a id="one_nav" href="#top_nav"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="one" onclick="muteAll(this)"></a>
             <br>
             <a id="two_nav" href="#meals-list"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="two" onclick="muteAll(this)"></a>
             <br>
-            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="three" onclick="muteAll(this)"></a>
+            <a id="three_nav" href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="three" onclick="muteAll(this)"></a>
             <br>
-            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="four" onclick="muteAll(this)"></a>
+            <a id="four_nav" href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="four" onclick="muteAll(this)"></a>
             <br>
-            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="five" onclick="muteAll(this)"></a>
+            <a id="five_nav" href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="five" onclick="muteAll(this)"></a>
             <br>
-            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="six" onclick="muteAll(this)"></a>
+            <a id="six_nav" href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="six" onclick="muteAll(this)"></a>
             <br>
-            <a href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="seven" onclick="muteAll(this)"></a>
+            <a id="seven_nav" href="#"><img src="/uploads/figures/muted_side_nav.png" class="nav_circle" alt="circle" id="seven" onclick="muteAll(this)"></a>
         </div>
     </div>
 @endsection
 
 @section('content')
-<div id="black_menu" class="wraper3" onmouseover="activate(this)">
-    <div class="container">
+<div class="wraper3">
+    <div id="black_menu"  class="container" onmouseover="activate(this)">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card" style="background-color: black">
@@ -68,32 +68,47 @@
                         <div id="meals-list" v-cloak>
                             <div class="row py-3 menu">
                                 <div class="col-md-12">
-                                    <div class="row justify-content-around">
+                                    <div id="menu_buttons" class="row justify-content-around">
                                     <div v-for="menu in menus" class="btn menu_butt col-2"
                                          :class="{ 'active': menu.id === current_menu}"
-                                         v-on:click="clickMenuBtn" v-bind:attr-menu="menu.id"><img style="width: 20px;" src="/uploads/figures/bananas.png" alt="bananas"> @{{menu.name}}
+                                         v-on:click="clickMenuBtn" v-bind:attr-menu="menu.id"><img class="fruit" style="width: 20px;" src="/uploads/figures/bananas_muted.png" alt="bananas"> @{{menu.name}}
                                     </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row py-5 day-button">
-                                <div class="col-md-1">
-                                    <div v-for="(day, index) in menu_days" class="btn btn-light"
+                            <div class="row">
+                                <div class="col-4">
+                                    <div v-for="(day, index) in menu_days" class="btn btn-light col-5"
                                          :class="{ 'active': day.week_day_id === current_day}" v-on:click="clickBtn"
                                          v-bind:attr-menu="day.menu_id" v-bind:attr-day="day.week_day_id">
                                         @{{ name_days[index] }}
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <div class="row lists">
-                                <div class="col-md-3 list-item" v-for="item in items">
-                                    <img v-bind:src="item.image" alt="">
-                                    <p>@{{ item.time_name }}, @{{ item.name }}</p>
+                                <div class="col-8">
+                                    <div class="col-md-8 list-item" v-for="item in items">
+                                        <img v-bind:src="item.image" alt="">
+                                        <p>@{{ item.time_name }}, @{{ item.name }}</p>
+                                    </div>
                                 </div>
                             </div>
+                            {{--<div class="row py-5 day-button">--}}
+                                {{--<div class="col-md-1">--}}
+                                    {{--<div v-for="(day, index) in menu_days" class="btn btn-light"--}}
+                                         {{--:class="{ 'active': day.week_day_id === current_day}" v-on:click="clickBtn"--}}
+                                         {{--v-bind:attr-menu="day.menu_id" v-bind:attr-day="day.week_day_id">--}}
+                                        {{--@{{ name_days[index] }}--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+
+
+                            {{--<div class="row lists">--}}
+                                {{--<div class="col-md-3 list-item" v-for="item in items">--}}
+                                    {{--<img v-bind:src="item.image" alt="">--}}
+                                    {{--<p>@{{ item.time_name }}, @{{ item.name }}</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>

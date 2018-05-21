@@ -112,12 +112,18 @@ $(document).ready(function () {
     });
 });
 
-var vm = new Vue({
-    el: '#buttons',
-    data: {
-        activeBtn: ''
+document.addEventListener('scroll', function (e) {
+    var scroll = $(window).scrollTop();
+    if (scroll <= 500) {
+        document.getElementById("one").src = "/uploads/figures/active_side_nav.png";
+        document.getElementById("two").src = "/uploads/figures/muted_side_nav.png";
+        document.getElementById("three").src = "/uploads/figures/muted_side_nav.png";
+        document.getElementById("four").src = "/uploads/figures/muted_side_nav.png";
+        document.getElementById("five").src = "/uploads/figures/muted_side_nav.png";
+        document.getElementById("six").src = "/uploads/figures/muted_side_nav.png";
+        document.getElementById("seven").src = "/uploads/figures/muted_side_nav.png";
     }
-});
+}, true);
 
 /***/ })
 
