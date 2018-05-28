@@ -68,3 +68,12 @@ Route::group(
         Route::get('/select-menu-json/{id}', ['uses' => 'MenuController@select_menu_json', 'as' => 'select.json']);
     }
 );
+
+Route::group(
+    ['prefix' => 'cart', 'as' => 'cart.', 'Cart', 'middleware' => ['web']],
+    function () {
+        Route::get('/', ['uses' => 'CartController@index', 'as' => 'index']);
+        Route::get('/add/{menu_id}/{quantity}', ['uses' => 'CartController@add', 'as' => 'add']);
+    }
+);
+Route::get('/cart-test', ['uses' => 'TestController@index']);
